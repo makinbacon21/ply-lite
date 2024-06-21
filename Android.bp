@@ -1,0 +1,20 @@
+cc_binary {
+    name: "ply-image",
+    static_executable: true,
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-Wno-unused-function",
+        "-Wno-unused-variable",
+        "-Wno-duplicate-decl-specifier",
+    ],
+    static_libs: [
+        "libpng",
+        "libz",
+    ],
+    srcs: [
+        "ply-image.c",
+        "ply-frame-buffer.c"
+    ],
+    ramdisk: true,
+}

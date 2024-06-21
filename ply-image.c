@@ -51,6 +51,7 @@
 
 #define CLAMP(a,b,c) (MIN (MAX ((a), (b)), (c)))
 
+#define PATH_PREFIX "/system/etc"
 
 typedef union
 {
@@ -407,7 +408,7 @@ ply_image_rotate (ply_image_t *image,
 #include <stdio.h>
 #include <sys/ioctl.h>
 #include <sys/time.h>
-#include <values.h>
+#include <float.h>
 
 #include <linux/kd.h>
 
@@ -467,21 +468,21 @@ main (int    argc,
   //hide_cursor ();
 
   if (argc == 1)
-    image = ply_image_new ("/usr/splash.png");
+    image = ply_image_new (PATH_PREFIX "splash.png");
   else
   {
 	  int retcode = atoi(argv[1]);
 	  switch (retcode)
 	  {
 			case 0: case 64: case 65:
-			image = ply_image_new("/usr/splash.png");
+			image = ply_image_new(PATH_PREFIX "splash.png");
 			break;
 			case 66: case 1:
-			image = ply_image_new("/usr/splash_sad.png");
+			image = ply_image_new(PATH_PREFIX "splash_sad.png");
 			case 100:
-			image = ply_image_new("/usr/splash_update.png");
+			image = ply_image_new(PATH_PREFIX "splash_update.png");
 			default:
-			image = ply_image_new("/usr/splash_sad.png"); /* Unknown error */
+			image = ply_image_new(PATH_PREFIX "splash_sad.png"); /* Unknown error */
 	  }
   }
 

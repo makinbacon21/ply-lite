@@ -38,7 +38,7 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <values.h>
+#include <float.h>
 #include <unistd.h>
 
 #include <linux/fb.h>
